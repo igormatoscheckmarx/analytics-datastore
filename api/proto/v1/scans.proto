@@ -1,0 +1,71 @@
+syntax = "proto3";
+package analytics;
+
+option go_package = "./;analytics";
+
+service Scans{
+  rpc create (ScanRequest) returns (ScanResponse);
+  rpc update (ScanRequest) returns (ScanResponse);
+  rpc delete (ScanIdentifier) returns (ScanResponse);  
+}
+
+
+message ScanRequest{
+  string id = 1;
+  string tenant_id = 2;
+  string project_id = 3;
+  bool deleted = 4;
+  string timeZone = 5;
+  int64 created_at = 6;
+  int64 deleted_at = 7;
+  int64 updated_at = 8;
+  string source = 9;
+  string origin = 10;
+  string status = 11;
+  repeated ScanEngineExecutionSummary engine_execution_summaries = 12;
+  uint32 concurrent_scans = 13;
+  repeated string tags = 14;
+  string initiator = 15;
+  string branch = 16;
+  uint64 execution_time = 17;
+  PreScan preScan = 18;
+  repeated string engines = 19;
+}
+
+message ScanResponse{
+  bool status = 1;
+}
+
+message ScanEngineExecutionSummary {
+  string engine = 1;
+  uint64 loc = 2;
+  string scan_error_code = 3;
+  repeated string sources = 4;
+  string scan_type = 5;
+  uint64 execution_time = 6;
+  string engine_status = 7;
+  repeated ScanVulnerability severities = 8;
+  repeated ScanVulnerability states = 9;
+  repeated ScanVulnerability statuses = 10;
+};
+
+message ScanVulnerability {
+  string name = 1;
+  int64 counter = 2;
+};
+
+message ScanStatus{
+  string status = 1;
+  int64 scanCount = 2;
+};
+message ScanIdentifier{
+  string id = 1;
+  string tenant_id = 2;
+  int64 eventTime = 3;
+}
+
+message PreScan{
+  string error_code = 1;
+  uint64 execution_time = 2;
+  string status = 3;
+}

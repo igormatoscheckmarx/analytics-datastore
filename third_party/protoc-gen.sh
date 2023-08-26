@@ -1,0 +1,1 @@
+protoc --go_out=paths=source_relative:./pkg/ ./api/proto/v1/scans.proto
