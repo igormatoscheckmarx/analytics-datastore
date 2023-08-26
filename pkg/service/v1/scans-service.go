@@ -34,5 +34,5 @@ func (s *toDoServiceServer) connect(ctx context.Context) (*sql.Conn, error) {
 
 // Create new todo task
 func (s *toDoServiceServer) Create(ctx context.Context, req *analytics.ScanRequest) (*analytics.ScanResponse, error) {
-	return &analytics.ScanResponse{}, nil
+	return &analytics.ScanResponse{db: db}
 }

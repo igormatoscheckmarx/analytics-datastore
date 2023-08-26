@@ -1,9 +1,11 @@
-module github.com/go-grpc-http-rest-microservice-tutorial
+module github.com/igormatoscheckmarx/analytics-datatstore
 
 go 1.17
 
 require (
 	github.com/golang/protobuf v1.5.3 // indirect
+	github.com/masnun/gopher-and-rabbit v0.0.0-20190223090227-19d477901766 // indirect
+	github.com/streadway/amqp v1.1.0 // indirect
 	golang.org/x/net v0.9.0 // indirect
 	golang.org/x/sys v0.7.0 // indirect
 	golang.org/x/text v0.9.0 // indirect

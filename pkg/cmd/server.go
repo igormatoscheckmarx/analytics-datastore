@@ -1,11 +1,11 @@
-package main
+package cmd
 
 import (
 	"context"
 	"flag"
 	"fmt"
 
-	"../../pkg/protocol/grpc"
+	"github.com/igormatoscheckmarx/analytics-datatstore/pkg/protocol/grpc"
 )
 
 // Config is configuration for Server
